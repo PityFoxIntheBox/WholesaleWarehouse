@@ -34,19 +34,19 @@ namespace WholesaleWarehouse
             if (users[0].Role == 0)
             {
                 Console.WriteLine("Ваша роль - администратор");
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
                 menu.SelectAd();
             }
             if (users[0].Role==1)
             {
                 Console.WriteLine("Ваша роль - работник бухгалтерии");
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
                 menu.SelectAcc();
             }
             if (users[0].Role==2) 
             {
                 Console.WriteLine("Ваша роль - работник склада");
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
                 menu.SelectStor();
             }
 

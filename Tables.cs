@@ -21,6 +21,7 @@ namespace WholesaleWarehouse
         }
         public void Show(List<Users> U)
         {
+            U = new List<Users>();
             Console.Clear();
             using (StreamReader sr = new StreamReader(Path))
             {
@@ -44,6 +45,7 @@ namespace WholesaleWarehouse
             {
                 Console.Write($"{i} ");
                 u.show();
+                i++;
             }
         }
         public void Add()
@@ -68,12 +70,13 @@ namespace WholesaleWarehouse
                 sw.Write($"{patr};");
                 sw.Write($"{log};");
                 sw.Write($"{pass};");
-                sw.Write($"{role};\n");
+                sw.Write($"{role}\n");
                 sw.Close();
             }
         }
         public void Del(List<Users> U)
         {
+            U = new List<Users>();
             using (StreamReader sr = new StreamReader(Path))
             {
                 while (sr.EndOfStream != true)
@@ -94,7 +97,7 @@ namespace WholesaleWarehouse
             Console.WriteLine("Введите номер строки, которую нужно удалить");
             int d = Convert.ToInt32(Console.ReadLine());
             U.RemoveAt(d-1);
-            using (StreamWriter sw = new StreamWriter(File.Open(Path, FileMode.Create)))
+            using (StreamWriter sw = new StreamWriter(Path))
             {
                 for (int i = 0; i < U.Count; i++)
                 {
@@ -103,7 +106,7 @@ namespace WholesaleWarehouse
                     sw.Write($"{U[i].Patronymic};");
                     sw.Write($"{U[i].Login};");
                     sw.Write($"{U[i].Password};");
-                    sw.Write($"{U[i].Role};\n");
+                    sw.Write($"{U[i].Role}\n");
                 }
                 sw.Close();
             }
@@ -117,6 +120,7 @@ namespace WholesaleWarehouse
         }
         public void Show(List<Sales> S)
         {
+            S = new List<Sales>();
             Console.Clear();
             using (StreamReader sr = new StreamReader(Path))
             {
@@ -140,6 +144,7 @@ namespace WholesaleWarehouse
             {
                 Console.Write($"{i} ");
                 s.show();
+                i++;
             }
         }
         public void Add()
@@ -163,12 +168,13 @@ namespace WholesaleWarehouse
                 sw.Write($"{buyer};");
                 sw.Write($"{amount};");
                 sw.Write($"{price};");
-                sw.Write($"{sum};\n");
+                sw.Write($"{sum}\n");
                 sw.Close();
             }
         }
         public void Del(List<Sales> S)
         {
+            S = new List<Sales>();
             using (StreamReader sr = new StreamReader(Path))
             {
                 while (sr.EndOfStream != true)
@@ -198,7 +204,7 @@ namespace WholesaleWarehouse
                     sw.Write($"{S[i].Buyer};");
                     sw.Write($"{S[i].Amount};");
                     sw.Write($"{S[i].Price};");
-                    sw.Write($"{S[i].Sum};\n");
+                    sw.Write($"{S[i].Sum}\n");
                 }
                 sw.Close();
             }
@@ -212,6 +218,7 @@ namespace WholesaleWarehouse
         }
         public void Show(List<Supplies> S)
         {
+            S = new List<Supplies>();
             Console.Clear();
             using (StreamReader sr = new StreamReader(Path))
             {
@@ -235,6 +242,7 @@ namespace WholesaleWarehouse
             {
                 Console.Write($"{i} ");
                 s.show();
+                i++;
             }
         }
         public void Add()
@@ -258,12 +266,13 @@ namespace WholesaleWarehouse
                 sw.Write($"{supplier};");
                 sw.Write($"{amount};");
                 sw.Write($"{price};");
-                sw.Write($"{sum};\n");
+                sw.Write($"{sum}\n");
                 sw.Close();
             }
         }
         public void Del(List<Supplies> S)
         {
+            S = new List<Supplies>();
             using (StreamReader sr = new StreamReader(Path))
             {
                 while (sr.EndOfStream != true)
@@ -293,7 +302,7 @@ namespace WholesaleWarehouse
                     sw.Write($"{S[i].Supplier};");
                     sw.Write($"{S[i].Amount};");
                     sw.Write($"{S[i].Price};");
-                    sw.Write($"{S[i].Sum};\n");
+                    sw.Write($"{S[i].Sum}\n");
                 }
                 sw.Close();
             }
@@ -307,6 +316,7 @@ namespace WholesaleWarehouse
         }
         public void Show(List<Items> I)
         {
+            I = new List<Items>();
             Console.Clear();
             using (StreamReader sr = new StreamReader(Path))
             {
@@ -327,6 +337,7 @@ namespace WholesaleWarehouse
             {
                 Console.Write($"{i} ");
                 t.show();
+                i++;
             }
             I.Clear();
         }
@@ -343,12 +354,13 @@ namespace WholesaleWarehouse
             {
                 sw.Write($"{item};");
                 sw.Write($"{price};");
-                sw.Write($"{type};\n");
+                sw.Write($"{type}\n");
                 sw.Close();
             }
         }
         public void Del(List<Items> I)
         {
+            I = new List<Items>();
             using (StreamReader sr = new StreamReader(Path))
             {
                 while (sr.EndOfStream != true)
@@ -372,7 +384,7 @@ namespace WholesaleWarehouse
                 {
                     sw.Write($"{I[i].Name};");
                     sw.Write($"{I[i].Price};");
-                    sw.Write($"{I[i].Type};\n");
+                    sw.Write($"{I[i].Type}\n");
                 }
                 sw.Close();
             }
@@ -386,6 +398,7 @@ namespace WholesaleWarehouse
         }
         public void Show(List<Suppliers> S)
         {
+            S = new List<Suppliers>();
             Console.Clear();
             using (StreamReader sr = new StreamReader(Path))
             {
@@ -405,6 +418,7 @@ namespace WholesaleWarehouse
             {
                 Console.Write($"{i} ");
                 s.show();
+                i++;
             }
             S.Clear();
         }
@@ -418,12 +432,13 @@ namespace WholesaleWarehouse
             using (StreamWriter sw = new StreamWriter(File.Open(Path, FileMode.Append)))
             {
                 sw.Write($"{name};");
-                sw.Write($"{description};\n");
+                sw.Write($"{description}\n");
                 sw.Close();
             }
         }
         public void Del(List<Suppliers> S)
         {
+            S = new List<Suppliers>();
             using (StreamReader sr = new StreamReader(Path))
             {
                 while (sr.EndOfStream != true)
@@ -445,7 +460,7 @@ namespace WholesaleWarehouse
                 for (int i = 0; i < S.Count; i++)
                 {
                     sw.Write($"{S[i].Name};");
-                    sw.Write($"{S[i].Description};\n");
+                    sw.Write($"{S[i].Description}\n");
                 }
                 sw.Close();
             }
@@ -459,6 +474,7 @@ namespace WholesaleWarehouse
         }
         public void Show(List<Buyers> B)
         {
+            B = new List<Buyers>();
             Console.Clear();
             using (StreamReader sr = new StreamReader(Path))
             {
@@ -478,6 +494,7 @@ namespace WholesaleWarehouse
             {
                 Console.Write($"{i} ");
                 b.show();
+                i++;
             }
             B.Clear();
         }
@@ -491,12 +508,13 @@ namespace WholesaleWarehouse
             using (StreamWriter sw = new StreamWriter(File.Open(Path, FileMode.Append)))
             {
                 sw.Write($"{name};");
-                sw.Write($"{description};\n");
+                sw.Write($"{description}\n");
                 sw.Close();
             }
         }
         public void Del(List<Buyers> B)
         {
+            B = new List<Buyers>();
             using (StreamReader sr = new StreamReader(Path))
             {
                 while (sr.EndOfStream != true)
@@ -518,7 +536,7 @@ namespace WholesaleWarehouse
                 for (int i = 0; i < B.Count; i++)
                 {
                     sw.Write($"{B[i].Name};");
-                    sw.Write($"{B[i].Description};\n");
+                    sw.Write($"{B[i].Description}\n");
                 }
                 sw.Close();
             }
